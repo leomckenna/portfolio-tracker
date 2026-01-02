@@ -34,7 +34,7 @@ st.title("📈 Portfolio Tracker")
 st.markdown("---")
 
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=300)  # Cache for 5 minutes (adjust based on market hours)
 def load_portfolio_data():
     """Load and cache portfolio data."""
     holdings = read_holdings('data/holdings.csv')
@@ -167,7 +167,7 @@ try:
         - **Holdings summary** with detailed information for each position
         
         Data is fetched using yfinance and cached locally for efficiency.
-        The dashboard automatically updates every hour.
+        The dashboard automatically refreshes data every 5 minutes.
         """)
         
         st.write(f"**Last Updated**: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}")

@@ -9,6 +9,9 @@ from typing import Tuple
 import pandas as pd
 import numpy as np
 
+# Trading days per year for annualization calculations
+TRADING_DAYS_PER_YEAR = 252
+
 
 def calculate_daily_returns(prices: pd.DataFrame) -> pd.DataFrame:
     """
@@ -126,7 +129,7 @@ def calculate_volatility(returns: pd.Series, annualize: bool = True) -> float:
     """
     vol = returns.std()
     if annualize:
-        vol = vol * np.sqrt(252)  # Assuming 252 trading days per year
+        vol = vol * np.sqrt(TRADING_DAYS_PER_YEAR)
     return vol
 
 

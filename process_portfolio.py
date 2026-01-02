@@ -10,11 +10,13 @@ This script orchestrates the portfolio analysis by:
 
 import sys
 import os
+
+# Add src directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-from fetch import download_price_data, get_latest_prices
-from holdings import read_holdings, get_tickers, calculate_positions, calculate_holdings_summary
-from metrics import (
+from src.fetch import download_price_data, get_latest_prices
+from src.holdings import read_holdings, get_tickers, calculate_positions, calculate_holdings_summary
+from src.metrics import (
     calculate_daily_returns, 
     calculate_cumulative_returns,
     calculate_portfolio_value,

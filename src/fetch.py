@@ -86,7 +86,7 @@ def download_price_data(
         print("Falling back to sample/synthetic data for demonstration...")
         
         # Import sample data generator
-        from sample_data import generate_sample_prices
+        from src.sample_data import generate_sample_prices
         prices = generate_sample_prices(tickers, start_date, end_date)
     
     # Cache the data

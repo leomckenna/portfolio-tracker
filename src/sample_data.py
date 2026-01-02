@@ -14,7 +14,8 @@ def generate_sample_prices(
     tickers: List[str],
     start_date: str = None,
     end_date: str = None,
-    initial_prices: dict = None
+    initial_prices: dict = None,
+    seed: int = 42
 ) -> pd.DataFrame:
     """
     Generate synthetic price data for testing.
@@ -24,6 +25,7 @@ def generate_sample_prices(
         start_date: Start date in 'YYYY-MM-DD' format
         end_date: End date in 'YYYY-MM-DD' format
         initial_prices: Dict of initial prices for each ticker (optional)
+        seed: Random seed for reproducibility (default: 42)
         
     Returns:
         DataFrame with historical prices
@@ -54,7 +56,7 @@ def generate_sample_prices(
     
     # Generate price data
     data = {}
-    np.random.seed(42)  # For reproducibility
+    np.random.seed(seed)  # For reproducibility
     
     for ticker in tickers:
         base_price = initial_prices.get(ticker, 100.0)
